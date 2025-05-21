@@ -8,7 +8,6 @@ const Controled = () => {
         password: "",    
         phone: "",
    };
-
     const [formValue, setFormValue] = useState(data);
 
     const handleChange = (e) => {
@@ -25,7 +24,7 @@ const Controled = () => {
     };
 
     return (
-        <div className="p-4 max-w-[940px] mx-auto card">
+        <div className="p-4 max-w-[640px] mx-auto mt-50 shadow-2xl ">
             <h2 className="text-4xl font-bold pb-10">Controlled Form</h2>
             <form className="grid grid-cols-1 md:grid-cols-2 gap-6" onSubmit={handleSubmit}>
 
