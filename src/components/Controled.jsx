@@ -9,25 +9,25 @@ const Controled = () => {
     };
     const [formValue, setFormValue] = useState(initialData);
     const [errors, setErrors] = useState({});
-
+    
     const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormValue(oldValue => ({
-            ...oldValue,
+        const name = e.target.name;
+        const value = e.target.value;
+
+        setFormValue({
+            ...formValue,
             [name]: value,
-        }));
+        });
 
-        setErrors(oldErrors => ({
-            ...oldErrors,
-            [name]: "",
-        }));
-    };
-
+        setErrors({
+            ...errors,
+            [name]: '',
+        });
+      };
     const handleSubmit = (e) => {
         e.preventDefault();
-
         const newErrors = {};
-
+        
         if (!formValue.name) {
             newErrors.name = "Name is required";
         }
@@ -43,13 +43,14 @@ const Controled = () => {
             return;
         }
         console.log('Form Data:', formValue);
+
         setFormValue({ name: '', email: '', password: '' });
         setErrors({});
     };
 
     return (
         <div className="p-4 max-w-[640px] mx-auto mt-10 shadow-2xl">
-            <h2 className="text-4xl font-bold pb-10">Form with Inline Validation</h2>
+            <h2 className="text-4xl font-bold pb-10">Form  Validation</h2>
             <form onSubmit={handleSubmit} >
                 <div className="mb-6">
                     <TextInput
